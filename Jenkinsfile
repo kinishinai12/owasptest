@@ -33,7 +33,7 @@ def scan_type
          stage('Setting up OWASP ZAP docker container') {
              steps {
                  script {
-                         echo 'Pulling up last OWASP ZAP container --> Start'
+                        echo 'Pulling up last OWASP ZAP container --> Start'
                         sh 'docker pull owasp/zap2docker-stable:latest'
                         echo 'Pulling up last VMS container --> End'
                         echo 'Starting container --> Start'
@@ -51,7 +51,7 @@ def scan_type
                 script {
                     sh '''
                              docker exec owasp \
-                             mkdir /zap/wrk
+                             mkdir //zap/work
                          '''
                 }
             }
