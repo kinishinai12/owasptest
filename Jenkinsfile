@@ -48,13 +48,13 @@ def scan_type
                          environment name : 'GENERATE_REPORT', value: 'true'
              }
              steps {
-                 script {
-                         sh """
+                script {
+                    sh '''
                              docker exec owasp \
                              mkdir /zap/wrk
-                         """
-                     }
-                 }
+                         '''
+                }
+            }
          }
  
  
