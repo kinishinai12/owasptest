@@ -69,7 +69,7 @@ def scan_type
                              docker exec owasp \
                              zap-baseline.py \
                              -t $target \
-                             -w report.md \
+                             -J report.json \
                              -I
                          """
                      }
@@ -78,7 +78,7 @@ def scan_type
                              docker exec owasp \
                              zap-api-scan.py \
                              -t $target \
-                             -w report.md \
+                             -J report.json \
                              -I
                          """
                      }
@@ -87,10 +87,10 @@ def scan_type
                              docker exec owasp \
                              zap-full-scan.py \
                              -t $target \
-                             //-w report.md
+                             //-J report.json
                              -I
                          """
-                         //-w report-$(date +%d-%b-%Y).md
+                         //-J report-$(date +%d-%b-%Y).json
                      }
                      else{
                          echo "Something went wrong..."
@@ -102,7 +102,7 @@ def scan_type
              steps {
                  script {
                      sh '''
-                         docker cp owasp:/zap/wrk/report.md "${WORKSPACE}"/report.md
+                         docker cp owasp:/zap/wrk/report.json "${WORKSPACE}"/report.json
                      '''
                  }
              }
